@@ -1,0 +1,34 @@
+<h2>New House</h2>
+<hr>
+
+<%= form_for(@house, html: { multipart: true }) do |f| %>
+
+    <div class="form-group">
+        <%= f.text_field :name, :placeholder => "House name", :class => "form-control" %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.text_area :address, :placeholder => "House address", :class => "form-control" %>
+    </div>
+    
+    <% if current_user.admin? %>
+     <div class="form-group">
+        <%= f.text_field :status, :placeholder => "House status", :class => "form-control" %>
+    </div>
+    <% end %>
+    
+    <br>
+    Image
+    <%= f.file_field :picture %>
+    <br>
+    3D File
+    <%= f.file_field :file %>
+    <br>
+    Meta File
+    <%= f.file_field :meta %>
+    <br>
+    
+    
+    <%= f.submit "Create House", class: "btn btn-primary" %>
+
+<% end %>

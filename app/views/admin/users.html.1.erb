@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-2 sidebar">
+    <br>
+    <ul class="nav nav-pills nav-stacked">
+      
+      <br><br><br><br><br><br>
+      <li role="presentation"  <% if @filter == "admin" %> class="active" <% end %> >
+        <a href="?filter=admin" > Admin </a>
+      </li>
+      <li role="presentation" <% if @filter == "builder" %> class="active" <% end %>>
+        <a href="?filter=builder">Builders</a>
+      </li>
+      <hr>
+      <li role="presentation">
+        <%= link_to new_user_path do %>
+          <button type="button" class="e360-btn">Add New User</button>
+        <% end %>
+      </li>
+      
+    </ul>
+    
+  </div>
+  
+  <div class="col-md-9 main">
+    <br>
+    <div class="navbar navbar-default">
+      <%#-  http://www.jorgecoca.com/buils-search-form-ruby-rails/  %>
+      <%= form_tag(all_users_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Users" %>
+          <span class="input-group-btn">
+            <button class="btn" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+        </div>
+      <% end %>
+    </div>
+    
+    <%= render "shared/users_table" %>
+    
+  </div>
+</div>

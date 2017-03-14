@@ -1,0 +1,47 @@
+<table class="table"> 
+    <br>
+    <thead> 
+        <tr>
+            <th>#</th> <th>House Name</th> <th>Builder</th> <th>Status</th> <th></th> <th></th> <th></th>
+        </tr> 
+    </thead> 
+    <tbody>
+        <% @row = 1 %>
+        <% @houses.each do |h| %>
+            
+            <tr>
+                <th scope="row"><%= @row %></th>
+                <td><%= h.name %></td>
+                <td><%= h.users.first.first_name + " " + h.users.first.last_name%></td>
+                <td>
+                    <% if h.status == "pending" %>
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <% end %>
+                    <%= h.status %>
+                </td>
+                
+                <td>
+                    <%= link_to h do %>
+                        <button type="button" class="btn btn-primary">View</button>
+                    <% end %>
+                </td>
+                
+                <td>
+                    <%= link_to edit_house_path(h.id) do %>
+                        <button type="button" class="btn btn-info">Edit</button>
+                    <% end %>
+                </td>
+                
+                <td>
+                    <a href="<%= h.file.to_s %>" download>
+                        <button type="button" class="btn btn-warning">Download</button>
+                    </a>
+                </td>
+                
+            </tr>
+            <% @row += 1 %>
+            
+        <% end %>
+        
+    </tbody> 
+</table>

@@ -1,0 +1,26 @@
+<h2>Options [OLD]</h2>
+<hr>
+
+<div class="row">
+
+    <div class='col-md-10'>
+        <table class="table">
+            <thead>
+                <th>#</th>
+                <th>Name</th>
+            </thead>
+            
+            <tbody>
+                <% @row = 1 %>
+                <% @options.each do |o| %>
+                    <tr>
+                        <th scope="row"><%= @row %></th>
+                        <td><%= o.name %></td>
+
+                    </tr>
+                    <% @row += 1 %>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

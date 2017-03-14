@@ -1,0 +1,37 @@
+<br><br>
+<ul class="nav nav-tabs nav-justified">
+    <li role="presentation" <% if params[:q] == nil %> class="active" <% end %>>
+        <a href="?"><strong>My Options</strong></a>
+    </li>
+    
+    <li role="presentation" <% if params[:q] == "all" %> class="active" <% end %>>
+        <a href="?q=all"><strong>All Options</strong></a>
+    </li>
+</ul>
+<hr>
+<br>
+<% if true %>
+<div class="row">
+
+    <div class="col-md-2 sidebar">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" <% if params[:category] == nil %> class="active" <% end %> >
+                <a href="?">All Options</a>
+            </li>
+            <hr>
+            <% @categorys.each do |c| %>
+                <li role="presentation" <% if params[:category] == c %> class="active" <% end %>>
+                    <a href="?category=<%= c %>">
+                        <%= c %>
+                    </a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    
+    
+    <div class="col-md-10 main">
+        <%= render "shared/options/builder_table" %>
+    </div>
+</div>
+<% end %>

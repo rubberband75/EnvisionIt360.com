@@ -1,0 +1,8 @@
+{"<%= objs.name %>s":[
+    <% @j = 1 %>
+    <% objs.each do |o| %>
+        <%= render partial: "json", locals: {obj: o} %>
+        <% if @j < objs.count %>,<% end %>
+        <% @j += 1 %>
+    <% end %>
+] }

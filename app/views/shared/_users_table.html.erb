@@ -1,0 +1,42 @@
+<table class="table"> 
+    <br>
+    <thead> 
+        <tr>
+            <th>#</th> <th>Name</th> <th>Email</th> <th>Role</th>
+        </tr> 
+    </thead> 
+    <tbody>
+        <% @row = 1 %>
+        <% @users.each do |u| %>
+            
+            
+            <tr><a href="#"
+                <div id="table-row<%= @row %>">
+                <a href="#">
+                <th scope="row"><%= @row %></th>
+                <td><%= u.first_name + " " + u.last_name %></td>
+                <td><%= u.email %></td>
+                <td><%= u.role %></td>
+                
+                <td>
+                    <%= link_to u do %>
+                        <button type="button" class="btn btn-primary">View</button>
+                    <% end %>
+                </td>
+                
+                <td>
+                    <%= link_to edit_user_path(u.id) do %>
+                        <button type="button" class="btn btn-info">Edit</button>
+                    <% end %>
+                </td>
+                </a>
+                </div>
+                
+            </a></tr>
+            
+            <% @row += 1 %>
+            
+        <% end %>
+        
+    </tbody> 
+</table>

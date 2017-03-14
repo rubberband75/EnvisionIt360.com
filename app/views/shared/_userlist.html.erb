@@ -1,0 +1,31 @@
+<div class="list-group">
+    
+    <a href="#" class="list-group-item disabled">
+        <div class="row">
+            <strong>
+            <div class="col-md-3">First Name</div>
+            <div class="col-md-3">Last Name</div>
+            <div class="col-md-4">Email</div>
+            <div class="col-md-2">Role</div>
+            </strong>
+        </div>
+    </a>
+    
+    <% @users.each do |u| %>
+    <a href="<%= user_path(u) %>" class="list-group-item">
+        <div class="row">
+            <div class="col-md-2"><%= u.first_name %></div>
+            <div class="col-md-2"><%= u.last_name %></div>
+            <div class="col-md-4"><%= u.email %></div>
+            <div class="col-md-1"><%= u.role %></div>
+            
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary btn-lg">View</button>
+            </div>
+            
+            
+        </div>
+    </a>
+    <% end %>
+    
+</div>

@@ -1,0 +1,124 @@
+<h2>Dashboard</h2>
+<hr>
+
+<div class="row">
+    <% if current_user && current_user.admin? %>
+        <div class="col-md-4">
+            
+            <%= link_to all_users_path do %>
+                <button type="button" class="e360-btn e360-btn-lrg e360-btn-block">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
+                    All Users
+                </button>
+            <% end %>
+            
+            <br>
+            
+            <%= link_to all_houses_path do %>
+                <button type="button" class="e360-btn e360-btn-lrg e360-btn-block">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    </div>
+                    All Houses
+                </button>
+            <% end %>
+            
+            <br>
+            <%= link_to all_options_path do %>
+                <button type="button" class="e360-btn e360-btn-lrg e360-btn-block">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                    </div>
+                    Options
+                </button>
+            <% end %>
+            
+            <br>
+            <%= link_to messages_path do %>
+                <button type="button" class="e360-btn e360-btn-lrg e360-btn-block">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </div>
+                    Messasges
+                </button>
+            <% end %>
+    </div>
+    <% end %>
+    
+    
+    
+    
+    <% if current_user && current_user.builder? %>
+        <div class="col-md-4">
+            
+            <%= link_to  "/my-houses" do %>
+                <button type="button" class="btn btn-primary btn-lg btn-block">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    </div>
+                     My Houses
+                </button>
+            <% end %>
+            
+            <br>
+            
+            <%= link_to "/my-customers" do%>
+                <button type="button" class="btn btn-primary btn-lg btn-block">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
+                    My Customers
+                </button>
+            <% end %>
+            
+            <br>
+            <%= link_to communities_path do%>
+                <button type="button" class="btn btn-primary btn-lg btn-block">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
+                    My Communities
+                </button>
+            <% end %>
+            
+        </div>
+    <% end %>
+    
+    
+    
+    
+    <% if current_user && current_user.buyer? %>
+        <h1>Welcome, <%= current_user.first_name + " " + current_user.last_name %>!</h1>
+        <h3>Your contractor: <%= current_user.contractor.first_name + " " + current_user.contractor.last_name %></h3>
+        
+        <% if false %>
+            <p><a href="http://52.34.11.68/alpha/homes/testhouse4/index.html" class="btn btn-primary" role='button' onclick="window.open('http://52.34.11.68/alpha/homes/testhouse4/index.html', 'newwindow', 'width=1000, height=565'); return false;">Old 3D Viewer</a></p>
+            <br>
+        <% end %>
+        
+        <%= link_to "/gameStarter/#{current_user.assigned_house.id.to_s}" do%>
+            <button type="button" class="btn btn-primary btn-lg">
+                <div class="col-md-1"> 
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                </div>
+                3D House Viewer
+            </button>
+        <% end %>
+        
+        
+        <% if false %>
+            <%= link_to gameTester_path do%>
+                <button type="button" class="btn btn-warning">
+                    <div class="col-md-1"> 
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                    </div>
+                    TextBased Option Selector
+                </button>
+            <% end %>
+        <% end %>
+        
+     <% end %>
+    
+

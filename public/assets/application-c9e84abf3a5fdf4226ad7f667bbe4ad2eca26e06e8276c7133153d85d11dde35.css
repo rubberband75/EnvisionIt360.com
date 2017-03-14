@@ -1,0 +1,188 @@
+/*
+ * Base structure
+ */
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/houses.scss */
+#house-info {
+  padding: 10px 20px;
+  font-size: 1.3em;
+  display: block;
+  height: 390px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+.envi360-container {
+    width: 65%;
+    margin: 60px auto 0 auto;
+}
+
+.tilePicture {
+    width: 400px;
+    height: 400px;
+}
+
+
+.house-pic {
+    display: block;
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+}
+
+
+.info-block {
+    display: block;
+    
+    width: 100%;
+    background-color: white;
+    
+}
+
+.static-image-block {
+    background-image: url(https://envision-it-360-chandler-childs.c9users.io/assets/Riparian-ecc4ca6889dfce8f7ac00b9c3f7593bad262feb06ca8659082223d1c90fa3836.jpg);
+    display: block;
+    width: 100%;
+    padding: 20px 0 20px 0;
+}
+
+.section-text {
+    display: block;
+    width: 100%;
+    padding: 20px 0 20px 0;
+}
+
+.block-title {
+    padding: 40px 0 40px 0;
+    font-size: 5.4em;
+}
+
+.parallax {
+width: 100%;
+position: relative;
+background: #000000;
+height: 600px;
+background-size: cover;
+background-position: center 200px;
+//background-attachment: fixed;
+
+}
+
+.waterfront {
+    background-image: url(https://envision-it-360-chandler-childs.c9users.io/assets/Riparian-ecc4ca6889dfce8f7ac00b9c3f7593bad262feb06ca8659082223d1c90fa3836.jpg);
+    
+}
+
+.shingles {
+    background-image: url(https://envision-it-360-chandler-childs.c9users.io/assets/Marketing-b6eac8e0e9e3cda070126ecb1e1436bbaf1b323096888fb157e553ab14333e35.jpg);
+    
+}
+
+.phonebooth {
+    background-image: url(https://envision-it-360-chandler-childs.c9users.io/assets/Contact%20us-a68f49fd44c99cc89d3980e5d2be44e41c330ea852aba120a3c41b9e8dd999d0.jpg);
+    background-position: center 100px !important;
+}
+
+.home-image-block {
+    height: 550px;
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+.home-section-title {
+    font-family: 'Bree Serif', serif;
+    color: white;
+    font-size: 700%;
+   text-shadow: 0px 1px 7px rgba(0, 0, 0, 1);
+    
+    padding: 200px 0;
+    
+    text-shadow: 0px 2px 3px #666;
+    text-shadow: 0px 2px 1px #555, 0px -2px 1px #555, -2px 0px 2px #555;
+    text-shadow: 0px 2px 1px #555, 0px -2px 1px #555, -2px 0px 2px #FFF;
+    text-shadow: 1px -1px 1px #555, 1px 0px 1px #555, 1px -2px 1px #555, 2px 0px 1px #555;
+}
+
+
+
+.home-article {
+    font-size: 19px;
+    padding: 120px 0;
+}
+
+.home-image-block
+{
+    background-position: center -200px;
+    box-shadow: 0px 0px 8px 0px black;
+}
+
+.sticky {
+    position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+.home-header {
+    color: white;
+    margin-top: 45px;
+    padding: 100px 0 100px 0;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 700%;
+    background-color: #7FBDFF;
+}
+
+.logo {
+    width: 200px;
+}
+
+header img {
+    width: 20%;
+}
+
+
+html, body, section
+{
+    background: white;
+}
+
+.home-footer {
+     background: #7FBDFF;
+     font-family: 'Montserrat', sans-serif;
+     color: white;
+     padding: 60px 0 60px 0;
+     font-size: 30pt;
+}
+
+.footer-image img{
+    width: 8%;
+    
+}
+
+.marketing-image img {
+    width: 70%;
+}
+
+.logo-text
+{
+        text-shadow: 1px 1px 0 #CCC, 2px 2px 0 #CCC, 3px 3px 0 #444, 4px 4px 0 #444, 5px 5px 0 #444, 6px 6px 0 #444, /* The Blur - optional */ 5px 5px 15px #999;
+        text-shadow: 1px 1px 0 #5B4DB0, 2px 2px 0 #5B4DB0, 3px 3px 0 #5B4DB0, 4px 4px 0 #5B4DB0, 5px 5px 0 #5B4DB0, 6px 6px 0 #2F285A, /* The Blur - optional */ 5px 5px 15px #5B4DB0;
+}
+

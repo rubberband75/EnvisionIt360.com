@@ -1,0 +1,19 @@
+{
+    <% @i = 1 %>
+    <% obj.attributes.each do |k, v| %>
+        
+        <% if k == "file" %>
+        "<%= k %>":"<%= obj.file %>"
+        
+        <% elsif k == "picture" %>
+        "<%= k %>":"<%= obj.picture %>"
+        
+        <% else %>
+        "<%= k %>":"<%= v %>"
+        
+        <% end %>
+        
+        <% if @i < obj.attributes.count %>,<% end %>
+        <% @i += 1 %>
+    <% end %>
+}

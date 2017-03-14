@@ -1,0 +1,35 @@
+<h2>All Users</h2>
+<hr>
+
+
+<div class="list-group">
+    
+    <a href="#" class="list-group-item disabled">
+        <div class="row">
+            <strong>
+            <div class="col-md-3">First Name</div>
+            <div class="col-md-3">Last Name</div>
+            <div class="col-md-3">Email</div>
+            <div class="col-md-3">Role</div>
+            </strong>
+        </div>
+    </a>
+    
+    <% @users.each do |u| %>
+    <a href="<%= user_path(u) %>" class="list-group-item">
+        <div class="row">
+            <div class="col-md-3"><%= u.first_name %></div>
+            <div class="col-md-3"><%= u.last_name %></div>
+            <div class="col-md-3"><%= u.email %></div>
+            <div class="col-md-3"><%= u.role %></div>
+        </div>
+    </a>
+    <% end %>
+    
+</div>
+
+<p>
+  <%= link_to new_user_path do %>
+    <button type="button" class="btn btn-primary btn-lg">Add User</button>
+  <% end %>
+</p>

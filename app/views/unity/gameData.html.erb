@@ -1,0 +1,40 @@
+<% case @request 
+    when "username" %>
+        <%= @response %>
+        
+    <% when "user" %>
+        <%= render partial: "json", locals: {obj: @user} %>
+        
+    <% when "house" %>
+        <%= render partial: "json", locals: {obj: @house} %>
+        
+    <% when "option" %>
+        <%= render partial: "json", locals: {obj: @option} %>
+        
+    <% when "options" %>
+        
+        <%= render partial: "jsonList", locals: {objs: @options} %>
+        
+    <% when "house_id" %>
+        <%= @response %>
+        
+    <% when "availableOptions" %>
+        [
+            <% @j = 1 %>
+            <% @names.each do |n| %>
+                <%= n %>
+                <% if @j < @names.count %>,<% end %>
+                <% @j += 1 %>
+            <% end %>
+        ]
+
+<% end %>
+
+<% case @update
+    when "selectedOptions" %>
+    Hello <%= @user.first_name %>
+    <br>
+    Here are your selected options:
+    <p><%= @list %></p>
+    
+<% end %>

@@ -1,0 +1,160 @@
+<link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<header class="text-center home-header">
+    <div class="text-center">
+    <span class="logo-text">Envision</span>
+    <%= image_tag "EnvisionIt Logo.png" %>
+    <span class="logo-text" style="padding-right: 120px">It  360</span>
+    </div>
+</header>
+
+<div style="background-color: #432c86; display: block; height: 42px"></div>
+<section class='' id='about'>
+    <div class='home-image-block waterfront'>
+        <div class='home-section-title text-center'>
+            ABOUT
+        </div>
+    </div>
+    <article class='home-article'>
+        <div class='container'>
+            <div class="row">
+                <div class="col-md-6">
+                    Here at EnvisionIt 360, we have set out to create an experience for the home buyers and contractors alike. We are making it possible for the average American to design their new home on their own time, with out any prior experience. The home owner will also be able to see and manage their budget.
+                </div>
+                
+                <div class="col-md-6">
+                    Likewise, EnvisionIt 360 will allow contractors to visually see what their customers are wanting and help cut down the time spent in the design center. EnvisionIt 360 will also give contractors analysis to help them better understand their customers and what their customers want in their future home. This will help contractors to tailor their company more effectively to become more profitable and save time and money on different resources.
+                </div>
+            </div>
+            
+        </div>
+        
+    </article>
+</section>
+
+<div style="background-color: white; display: block; height: 42px"></div>
+<section class='' id='marketing'>
+    <div class='home-image-block shingles'>
+        <div class='home-section-title text-center'>
+            MARKETING
+        </div>
+    </div>
+    <article class='home-article'>
+        <div class="container">
+           <h3>How It Works</h3>
+           <p>
+               We take the house plans, all the information about the house, and all the materials that are offered and input online we compile everything and make an enjoyable experience for the home buyer. 
+    
+           </p>
+           <br><br>
+           <div class="marketing-image text-center" >
+               <%= image_tag 'diagram.png' %>
+           </div>
+       
+        </div>
+    </article>
+    
+</section>
+<div style="background-color: white; display: block; height: 42px"></div>
+<section class='' id='contactus'>
+    <div class='home-image-block phonebooth'>
+        <div class='home-section-title text-center'>
+            CONTACT US
+        </div>
+    </div>
+    <article class='home-article'>
+        <div class="container">
+            <div class="row">
+                <h3>Please Send us a message if you are interested in learning more:</h3>
+                <br>
+                
+                <%= form_for (@message = Message.new), html: {class: "form-horizontal"} do |f| %>
+                    <div class="form-group" >
+                        <label class="col-sm-2 control-label"> Name: </label>
+                        <div class="col-sm-10">
+                            <%= f.text_field :sender_name %>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" >
+                        <label class="col-sm-2 control-label"> Email: </label>
+                        <div class="col-sm-10">
+                            <%= f.text_field :sender_email %>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" >
+                        <label class="col-sm-2 control-label"> Message: </label>
+                        <div class="col-sm-10">
+                            <%= f.text_area :message_text, size: "60x12" %>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" >
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <%= f.submit "Send" %>
+                        </div>
+                    </div>
+                    
+                <% end %>
+                       
+            </div>
+        </div>
+    </article>
+    
+</section>
+
+<footer class="home-footer">
+    <div class="container text-center">
+        EnvisionIt 360 
+        
+        <br>
+        <div class="footer-image" >
+            <%= image_tag "EnvisionIt Logo.png" %>
+        </div>
+        
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        
+      <%= form_for(:session, url: login_path) do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="myModalLabel">Log In</h2>
+      </div>
+      
+      <div class="modal-body">
+          
+        <div class="form-group">
+            <%= f.email_field :email, :placeholder => "Email", :class => "form-control" %>
+        </div>
+            
+        <div class="form-group">
+            <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
+        </div>
+        
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Log in", class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
+<script>
+</script>

@@ -1,0 +1,23 @@
+<h2>New Option</h2>
+<hr>
+
+<%= form_for(@option, html: { multipart:true }) do |f| %>
+    
+    <label>Option Name</label>
+    <div class="form-group">
+        <%= f.text_field :name, :placeholder => "Option name", :class => "form-control" %>
+    </div>
+    
+    <label>Category</label>
+    <div class="form-group">
+        <%= f.text_field :category, :placeholder => "Category", :class => "form-control" %>
+    </div>
+    
+    <br>
+    <label>3D File</label>
+    <%= f.file_field :file %>
+    <br>
+    
+    <%= f.submit "Create Option", class: "btn btn-primary" %>
+    
+<% end %>

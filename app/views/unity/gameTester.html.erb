@@ -1,0 +1,76 @@
+<h2><%= current_user.first_name + " " + current_user.last_name %></h2>
+
+<%= @house.name %>
+<br>
+
+
+<% if current_user.buyer? %>
+<br>
+<h2>Current Selections</h2>
+<hr>
+<div class="row">
+    <% @typeChoice.each do |t, c| %>
+    <div class="col-md-3">
+        <div class="well">
+            <h5><%= t %></h5>
+            <h3><%= c %></h3>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<br>
+<h2>Update Selections</h2>
+<hr>
+<div class="row">
+    <%= form_tag("/updateChoices", method: "post") do %>
+        
+        
+        <% @typeAvailable.each do |type, options| %>
+            <div class="col-md-3">
+                <div class="well">
+                    <h5><%= type %></h5>
+                    <ul>
+                        <% options.each do |option| %>
+                            
+                            
+                            <%= radio_button_tag(type, option.id) %>
+                            <%= label_tag(type, option.name) %>
+                            <br>
+                            
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        <% end %>
+           
+        <br>
+        <%= submit_tag("Update") %>
+    
+    <% end %>
+</div>
+<% end %>
+
+
+<% if current_user.builder? || current_user.admin? %>
+
+
+<br>
+<h2>Available Options</h2>
+<hr>
+<div class="row">
+    <% @typeAvailable.each do |t, o| %>
+    <div class="col-md-3">
+        <div class="well">
+            <h5><%= t %></h5>
+            <ul>
+                <% o.each do |oo| %>
+                <li><%= oo.name %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<% end %>

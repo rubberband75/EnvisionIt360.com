@@ -1,0 +1,68 @@
+<nav class="e360-nav sticky" >
+    <div class="container">
+    <a href="/"><%= image_tag "e360-logo.png", :class => "e360-nav-logo" %></a>
+    <ul class="e360-nav-list">
+      
+      
+      <!--
+      <li role="presentation"><a href="/users">Users</a></li>
+      <li role="presentation"><a href="/houses">Houses</a></li>
+      -->
+      
+      
+      <% if current_user %>
+      
+      
+            <% if current_user.builder? %>
+              <li role="presentation"<% if request.path == my_houses_path %> class="active" <% end %>>
+                <%= link_to "Houses", my_houses_path %>
+              </li>
+              <li role="presentation"<% if request.path == my_customers_path %> class="active" <% end %>>
+                <%= link_to "Customers", my_customers_path %>
+              </li>
+              <li role="presentation"<% if request.path == my_options_path %> class="active" <% end %>>
+                <%= link_to "Options", my_options_path %>
+              </li>
+              
+            
+            <% end %>  
+            <% if current_user.admin? %>
+              <li role="presentation"<% if request.path == all_users_path %> class="active" <% end %>>
+                <%= link_to "Users", all_users_path %>
+              </li>
+              <li role="presentation"<% if request.path == all_houses_path %> class="active" <% end %>>
+                <%= link_to "Houses", all_houses_path %>
+              </li>
+              <li role="presentation"<% if request.path == all_options_path %> class="active" <% end %>>
+                <%= link_to "Options", all_options_path %>
+              </li>
+            
+            <% end %>
+            <% if current_user.buyer? %>
+               <li role="presentation"><a href="/"><b><%= current_user.contractor.first_name + " " + current_user.contractor.last_name %></b></a></li>
+              
+            <% end %>
+            
+            
+            
+            
+            <li role="presentation" style="float: right"><%= link_to "Log out", logout_path, method: "delete" %></li>
+            <li role="presentation" style="float: right"><a href="<%= user_path(current_user) %>"> My Account</a></li>
+            
+        <% else %>
+          
+          
+          <li role="presentation" style="float: right"><a href="#" data-toggle="modal" data-target="#myModal"> Log In</a></li>
+          <li role="presentation" style="float: right"><a href="#contactus"> Contact Us</a></li>
+          <li role="presentation" style="float: right"><a href="#marketing"> Marketing</a></li>
+          <li role="presentation" style="float: right"><a href="#about"> About</a></li>
+          
+          
+        <% end %>
+        
+        
+
+    </ul>
+    </div>
+  </nav>
+  <div class="e360-top-spacer"></div>

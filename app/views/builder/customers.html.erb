@@ -1,0 +1,71 @@
+<h2>My Customers</h2>
+<hr>
+
+<div class="row">
+  <div class="col-md-2 sidebar">
+    <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" <% if params[:community] == nil %> class="active" <% end %> >
+                <a href="?"><b>All Customers</b></a>
+            </li>
+            <br>
+            <% @communities.each do |c| %>
+                <li role="presentation" <% if params[:community] == c.id.to_s %> class="active" <% end %>>
+                    <a href="?community=<%= c.id %>">
+                        <%= c.name %>
+                    </a>
+                </li>
+            <% end %>
+        </ul>
+        <br>
+        <%= link_to communities_path do %>
+          <button type="button" class="btn btn-info">Add Community</button>
+        <% end %>
+        <hr>
+        <%= link_to new_user_path do %>
+          <button type="button" class="btn btn-success">Add Customer</button>
+        <% end %>
+        
+  </div>
+  
+  <div class="col-md-10">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Login Count</th>
+          <th>Assigned House</th>
+          <th></th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @customers.each do |c| %>
+          <tr>
+            <td><%= c.first_name + " " + c.last_name %></td>
+            <td><%= c.email %></td>
+            
+            <td><%= c.loginCount %></td>
+            
+            <td>
+              <% if c.assigned_house %>
+                <a href="<%= house_path(c.assigned_house) %>"><%= c.assigned_house.name %></a>
+              <% else %>
+                
+              <% end %>
+            </td>
+            
+            <td>
+              <%= link_to "/my-customers/" + c.id.to_s do %>
+                  <button type="button" class="btn btn-primary">Customer Details</button>
+              <% end %>
+            </td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>

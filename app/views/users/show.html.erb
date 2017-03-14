@@ -1,0 +1,50 @@
+<h2>User Info</h2>
+<hr>
+
+<p><%= @user.first_name %> <%= @user.last_name %></p>
+<p><%= @user.email %></p>
+<p><%= @user.role %></p>
+
+<% if @user.builder? %>
+    <hr>
+    <h3>Buyers</h3>
+    <%= render "shared/userlist" %>
+
+
+
+    <hr>
+    <h3>Houses</h3>
+    <%= render "shared/house_tiles" %>
+    
+    
+
+<% end %>
+
+<% if @user.buyer? %>
+    <hr>
+    <h3>Contractor</h3>
+    <%= @user.contractor.first_name + " " + @user.contractor.last_name %>
+    
+    <br>
+    <hr>
+    <h3>Assigned House</h3>
+    <% if @user.assigned_house %>
+    <%= @user.assigned_house.name %>
+    
+    <br>
+    <%= image_tag @user.assigned_house.picture, style: "width: 400px" %>
+    <% else %>
+    No House Assigned
+    <% end %>
+    
+    
+<% end %>
+
+
+
+<hr>
+
+<% if current_user.admin? || @user.builder? %>
+<p><a href="<%= edit_user_path(@user.id) %>">Edit</a></p>
+<p><%= link_to "delete", user_path(@user), method: "delete" %></p>
+<% end %>

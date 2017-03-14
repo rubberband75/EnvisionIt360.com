@@ -1,0 +1,15 @@
+<h2>My Houses  
+<%= link_to new_house_path do %>
+    <button type="button" class="btn btn-primary btn-lg">Add New Home</button>
+  <% end %></h2>
+  
+  
+<hr>
+  <%= render partial: "houseTiles", locals: {houses: @ready} %>
+<br>
+
+
+<h2>Pending Houses</h2>
+<hr>
+  <%= render partial: "houseTiles", locals: {houses: @pending} %>
+<hr>

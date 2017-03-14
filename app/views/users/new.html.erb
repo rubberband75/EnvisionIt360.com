@@ -1,0 +1,45 @@
+<div class="login-box">
+    
+    <h2>Sign Up</h2>
+    
+    <div class="panel panel-default">
+    
+      <div class="panel-body">
+          
+        <%= form_for(@user) do |f| %>
+            
+            <div class="form-group">
+                <%= f.text_field :first_name, :placeholder => "First name", :class => "form-control" %>
+            </div>
+                
+            <div class="form-group">
+               <%= f.text_field :last_name, :placeholder => "Last name", :class => "form-control" %>
+            </div>
+            
+            <div class="form-group">
+               <%= f.email_field :email, :placeholder => "Email", :class => "form-control" %>
+            </div>
+            
+            <div class="form-group">
+               <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
+            </div>
+            
+            <% if current_user && current_user.admin? %>
+            <div class="form-group">
+               <%= f.text_field :role, :placeholder => "role", :class => "form-control" %>
+            </div>
+            <% end %>
+            
+            <% if current_user && current_user.builder? %>
+                <%= f.select(:assigned_house, @house_options) %>
+                
+            <% end %>
+            
+            <%= f.submit "Create Account", class: "btn btn-primary" %>
+            
+        <% end %>
+    
+      </div>
+    </div>
+
+</div>

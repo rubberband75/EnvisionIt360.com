@@ -1,0 +1,59 @@
+<div class="navbar navbar-default" >
+  <div class="row">
+    
+    <div style="flaot: left" class="col-xs-6">
+      <h2 class="e360-page-header">Users</h2>
+    </div> 
+    
+    <div class="col-xs-6">
+      <%#-  http://www.jorgecoca.com/buils-search-form-ruby-rails/  %>
+      <%= form_tag(all_users_path, :method => "get", class: "navbar-form", style: "float: right", id: "search-form") do %>
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Users" %>
+          <span class="input-group-btn">
+            <button class="btn" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-2 sidebar">
+    
+    <br>
+    <ul class="nav  nav-stacked">
+      
+      <a href="?filter=admin" style="text-decoration: none;">
+        <li  <% if @filter == "admin" %> class="active" <% end %> >
+          <div class="e360-sidebar-btn"> Admin</div>
+        </li>
+      </a>
+      
+      <a href="?filter=builder" style="text-decoration: none;">
+        <li role="presentation" <% if @filter == "builder" %> class="active" <% end %>>
+          <div class="e360-sidebar-btn">Builders</div>
+        </li>
+      </a>
+      
+      <hr>
+      <li role="presentation">
+        <%= link_to new_user_path do %>
+          <button type="button" class="e360-btn">Add New User</button>
+        <% end %>
+      </li>
+      
+    </ul>
+    
+  </div>
+  
+  <div class="col-md-9 col-md-offset-1 main">
+    
+    
+    <%= render "shared/users_table" %>
+    
+  </div>
+</div>

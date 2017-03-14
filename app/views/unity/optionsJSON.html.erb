@@ -1,0 +1,12 @@
+<% if true %>
+
+<% if @braces %>{<% end %>
+"options":[
+    
+    <% @options.each do |o| %>
+        {"id":"<%= o.id %>","name":"<%= o.name %>", "file":"https://envision-it-360-chandler-childs.c9users.io<%= o.file %>"},    
+    <% end %>
+    
+]
+<% if @braces %>}<% end %>
+<% end %>

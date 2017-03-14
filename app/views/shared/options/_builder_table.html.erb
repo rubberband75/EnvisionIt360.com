@@ -1,0 +1,34 @@
+<table class="table">
+    <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
+    
+    <tbody>
+        <% @row = 1 %>
+        <% @options.each do |o| %>
+            <tr>
+                <th scope="row"><%= @row %></th>
+                <td><%= o.name %></td>
+                <td><%= o.category %></td>
+                <td>
+                    <%= link_to o.file.to_s do %>
+                        <button type="button" class="btn btn-primary">View</button>
+                    <% end %>
+                </td>
+                
+                <td>
+                    <%= link_to edit_option_path(o.id) do %>
+                        <button type="button" class="btn btn-info">Edit</button>
+                    <% end %>
+                </td>
+                
+            </tr>
+            <% @row += 1 %>
+        <% end %>
+    </tbody>
+</table>

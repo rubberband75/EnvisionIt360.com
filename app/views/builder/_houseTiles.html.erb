@@ -1,0 +1,15 @@
+<div class="row">
+    <% houses.each do |h| %>
+        <a href="<%= house_path(h) %>">
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="house-pic" style="background-image: url(<%= h.picture %>)"></div>
+              
+              <div class="caption">
+                <h3><%= h.name %></h3>
+              </div>
+            </div>
+          </div>
+        </a>
+    <% end %>
+</div>

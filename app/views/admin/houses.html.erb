@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-2 sidebar">
+    <br>
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" <% if @filter == "" || @filter == nil %> class="active" <% end %> >
+        <a href="?">All Houses</a>
+      </li>
+      <hr>
+      
+      <% @builders.each do |b| %>
+          <li role="presentation" <% if @filter == b.id.to_s %> class="active" <% end %>>
+              <a href="?filter=<%= b.id %>">
+                  <%= b.first_name + " " + b.last_name %>
+                  <% if b.get_pending > 0 %>
+                      <span class="badge"><%= b.get_pending %></span>
+                  <% end %>
+                     
+              </a>
+          </li>
+      <% end %>
+      
+
+    </ul>
+    
+  </div>
+  
+  <div class="col-md-9 main">
+    
+    <%= render "shared/house_table" %>
+    
+  </div>
+</div>

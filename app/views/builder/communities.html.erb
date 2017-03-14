@@ -1,0 +1,55 @@
+<h2>My Communities</h2>
+<hr>
+<br>
+
+<div class="row">
+    <div class="col-md-2 sidebar">
+        <ul class="nav nav-pills nav-stacked">
+        <% @communities.each do |c| %>
+            <li role="presentation" <% if params[:id] == c.id.to_s %> class="active" <% end %>>
+                <a href="?id=<%= c.id %>"><%= c.name %></a>
+            </li>
+        <% end %>
+        </ul>
+        
+    </div>
+    
+    
+    
+    <div class="col-md-8 col-md-offset-1">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>House Name</th>
+                    <th>Address</th>
+                    
+                </tr>
+            </thead>
+            
+            <% if @selected %>
+            <tbody>
+                <% @houses.each do |house| %>
+                    <tr>
+                        <td><%= link_to house.name, house %></td>
+                        <td><%= house.address %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+            <% end %>
+            
+        </table>
+    </div>
+</div>
+<hr>
+<br>
+<h3>New Community</h3>
+<%= form_for(@com = Community.new) do |f| %>
+    
+    <label>Community Name</label>
+    <div class="form-group">
+        <%= f.text_field :name, :placeholder => "Community name", :class => "form-control" %>
+    </div>
+    
+    <%= f.submit "Add ", class: "btn btn-primary" %>
+    
+<% end %>

@@ -1,0 +1,157 @@
+
+<script>
+$(document).ready(function(){
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 15){  
+            $('nav.e360-nav').addClass("sticky");
+            $('nav.e360-nav').removeClass("e360-nav-home");
+            
+            $('.e360-logo-banner').animate({
+                marginTop: "0",
+                top: "0",
+                height: "70px",
+                paddingLeft: "20px"
+            });
+            $('.e360-logo-banner').css({
+                "position":"fixed",
+                "z-index":"999999",
+                "background-color" : "rgba(255, 255, 255, 0)"
+            });
+            
+            
+        }
+    });
+    
+    $(window).scroll(function() {
+        if($(this).scrollTop() < 15) {
+            $('nav.e360-nav').removeClass("sticky");
+            $('nav.e360-nav').addClass("e360-nav-home");
+            
+            $('.e360-logo-banner').css({
+                "position":"static",
+                "background-color" : "rgba(255, 255, 255, 0.46)",
+                "marginTop": "300px",
+                "height": "180px",
+                "paddingLeft": "400px"
+                
+            });
+        }
+    });
+
+    
+})
+
+
+
+</script>
+
+<div class="e360-image-banner" style="background-image: url(<%= asset_path 'kitchen.jpg' %>)">
+    <nav class="e360-nav e360-nav-home" >
+        <div class="" style="margin-right: 100px">
+            <a href="/"><%= image_tag "e360-logo.png", :class => "e360-nav-logo" %></a>
+            <ul class="e360-nav-list">
+                <li role="presentation" style="float: right"><a href="#" data-toggle="modal" data-target="#myModal"><b>Log In</b></a></li>
+                <li role="presentation" style="float: right"><a href="#contactus"><b>Contact Us</b></a></li>
+                <li role="presentation" style="float: right"><a href="#about"><b>About</b></a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="e360-logo-banner">
+        <%= image_tag "e360-logo.png", :class => "" %>
+    </div>
+    
+</div>
+
+<div class="container">
+    <div class="e360-row">
+        <section class="e360-section" id='about'>
+            <div class="e360-section-header">
+                <h2>
+                    About Us
+                    <div class="e360-section-header-highlight"></div>
+                </h2>
+            </div>
+            
+            <div class="row">
+                <p class="col-md-4">Here at EnvisionIt 360, we have set out to create an experience for the home buyers and contractors alike. We are making it possible for the average American to design their new home on their own time, with out any prior experience. The home owner will also be able to see and </p>
+                <p class="col-md-4">manage their budget. Likewise, EnvisionIt 360 will allow contractors to visually see what their customers are wanting and help cut down the time spent in the design center. EnvisionIt 360 will also give contractors analysis to help them better understand their customers </p>
+                <p class="col-md-4">and what their customers want in their future home. This will help contractors to tailor their company more effectively to become more profitable and save time and money on different resources.</p>
+            </div>
+        </section>
+    </div>
+    
+    
+    <div class="e360-row">
+        <aside class="col-md-4 e360-aside">
+            <div></div>
+            <h2>PLEASE SEND US A MESSAGE IF YOU ARE INTERESTED IN LEARNING MORE</h2>
+            <div></div>
+        </aside>
+        
+        <div class="col-md-8">
+            <article class='home-article'>
+                <%= form_for (@message = Message.new), html: {class: "form-horizontal"} do |f| %>
+                    <div class="form-group" >
+                        <label class="col-sm-2 control-label"> Name: </label>
+                        <div class="col-sm-10">
+                            <%= f.text_field :sender_name, :class => "form-control" %>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" >
+                        <label class="col-sm-2 control-label"> Email: </label>
+                        <div class="col-sm-10">
+                            <%= f.text_field :sender_email, :class => "form-control" %>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" >
+                        <label class="col-sm-2 control-label"> Message: </label>
+                        <div class="col-sm-10">
+                            <%= f.text_area :message_text, size: "50x12", :class => "form-control" %>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" >
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <%= f.submit "Send", :class => 'e360-btn e360-btn-lrg' %>
+                        </div>
+                    </div>
+                <% end %>
+            </article>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        
+      <%= form_for(:session, url: login_path) do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="myModalLabel">Log In</h2>
+      </div>
+      
+      <div class="modal-body">
+          
+        <div class="form-group">
+            <%= f.email_field :email, :placeholder => "Email", :class => "form-control" %>
+        </div>
+            
+        <div class="form-group">
+            <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
+        </div>
+        
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Log in", class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
